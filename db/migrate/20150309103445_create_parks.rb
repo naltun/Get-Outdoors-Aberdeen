@@ -4,7 +4,7 @@ class CreateParks < ActiveRecord::Migration
       t.text :name
       t.text :openTime
       t.text :closeTime
-      t.text :adress
+      t.text :address
       t.text :busRoutes
       t.text :description
 

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150309103445) do
     t.text     "name"
     t.text     "openTime"
     t.text     "closeTime"
-    t.text     "adress"
+    t.text     "address"
     t.text     "busRoutes"
     t.text     "description"
     t.datetime "created_at",  null: false
