@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Park.delete_all
+park_data = JSON.parse(File.read('db/parks.json'))
+park_data.each do |record|
+  Park.create(name: record["name"], openTime: record["openTime"], closeTime: record["closeTime"], address: record["address"], busRoutes: record["busRoutes"], description: record["description"])
+end
