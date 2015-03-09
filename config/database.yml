@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: get-outdoors-aberdeen_production
-  username: get-outdoors-aberdeen
   password: <%= ENV['GET-OUTDOORS-ABERDEEN_DATABASE_PASSWORD'] %>
