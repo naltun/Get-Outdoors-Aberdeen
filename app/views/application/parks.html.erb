@@ -7,7 +7,14 @@
     <th>Bus Routes</th>
     <th>Description</th>
   </tr>
-  <tr>
-    <td></td>
-  </tr>
+  <% Park.all.each do |p| %>  
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.openTime %></td>
+      <td><%= p.closeTime %></td>
+      <td><%= p.address %></td>
+      <td><%= p.busRoutes %></td>
+      <td><%= p.description %></td>
+    </tr>
+  <% end %>
 </table>
