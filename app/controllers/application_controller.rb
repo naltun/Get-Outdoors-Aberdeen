@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
   def parks
     render :parks
   end
+  def map
+    render :map
+  end
 end
