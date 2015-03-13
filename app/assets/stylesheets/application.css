@@ -2,3 +2,10 @@
   height: 300px;
   max-width: 225px;
 }
+.footer {
+  text-align: center;
+  background-color: #CEF6CE;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
