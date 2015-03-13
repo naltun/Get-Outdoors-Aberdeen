@@ -17,8 +17,6 @@
   </div>
   <div class="row">
     <div id="myCarousel" class="carousel slide">
-
-      <!-- Carousel items -->
       <div class="carousel-inner">
         <% @parks.each_with_index do |p, i| %>
           <% if i == 0 %>
@@ -26,13 +24,27 @@
           <% else %>
             <div class="item">
           <% end %>
-            <h3><%= image_tag(p.image_url, class: "park-image" ) %><p class="park-name"><%= p.name %></p></h3>
-            <p><%= p.image_attribution %></p>
+              <div class="row">  
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <%= image_tag(p.image_url, class: "park-image" ) %>
+                      <p><%= p.image_attribution %></p>
+                    </div>
+                    <div class="col-md-8">
+                      <h3 class="park-name"><%= p.name %></h3>
+                      <p><%= p.description %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
             </div>
         <% end %>
       </div>
-      <!-- Carousel nav -->
       <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
       <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>  
+    </div>
   </div>
 </div>
