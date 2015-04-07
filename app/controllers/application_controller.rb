@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
   def map
     render :map
   end
+  def login
+    render :login
+  end
 end
