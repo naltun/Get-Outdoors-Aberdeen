@@ -1,7 +1,9 @@
-Admin.delete_all
-Admin.create(
-  email: "n.altunian.14@aberdeen.ac.uk",
-  password: "noah"
+User.delete_all
+User.create(
+  name: "Example",
+  email: "rubygems@example.com",
+  password: "foobar",
+  password_confirmation: "foobar"
 )
 
 # Park.delete_all
