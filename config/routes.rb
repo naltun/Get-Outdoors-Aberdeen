@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'application#index'
   get '/parks', to: 'application#parks'
   get '/map', to: 'application#map'
 #   get '/login', to: 'application#login'
   
   Rails.application.routes.draw do
+  get 'users/new'
+
     resources :admins
   end
 
