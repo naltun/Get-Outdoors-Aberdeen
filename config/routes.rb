@@ -1,24 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   root 'application#index'
   get '/parks', to: 'application#parks'
   get '/map', to: 'application#map'
-  Rails.application.routes.draw do
-    get 'signup'  => 'users#new'
-    resources :users
-  end
-  
-#   get '/login', to: 'application#login'
-  
-#   Rails.application.routes.draw do
-#   get 'users/new'
-
-#     resources :admins
-#   end
-
-#   get "/log-in" => "sessions#new", as: :log_in
-#   post "/log-in" => "sessions#create"
-#   get "/log-out" => "sessions#destroy", as: :log_out
-  
+  get 'signup', to: 'users#new'
+  get 'users/new'
+  get    'login', to: 'sessions#new'
+  post   'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  resources :users  
 end
