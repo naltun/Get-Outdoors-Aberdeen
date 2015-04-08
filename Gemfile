@@ -49,4 +49,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+# Added Puma production webserver to interface with Heroku
+gem 'puma', group: :production
+
 
