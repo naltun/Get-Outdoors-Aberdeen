@@ -1,25 +1,40 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+  $(function() {
+    $( "#dialog" ).dialog();
+  });
+</script>
+
 <% provide(:title, 'Sign Up!') %>
 <h1>Sign Up!</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+      
       <%= f.label :name %>
-      <%= f.text_field :name %><br />
+      <%= f.text_field :name, class: 'form-control' %><br />
 
       <%= f.label :email %>
-      <%= f.email_field :email %><br />
+      <%= f.email_field :email, class: 'form-control' %><br />
 
       <%= f.label :password %>
-      <%= f.password_field :password %><br />
+      <%= f.password_field :password, class: 'form-control' %><br />
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: 'form-control' %><br />
 
       <%= f.submit "Create my account!", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 
+<div id="dialog" title="Just so you know...">
+<p>...you may only view the Maps section upon registering with us. Thank you. :)</p>
+</div>
+
 <!--     make jquery accordion message prompt here! -->
-<!-- 7.3.1 A working form part where I left off -->

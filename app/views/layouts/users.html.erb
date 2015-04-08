@@ -29,7 +29,10 @@
     <p class="navbar-text pull-right"><a href="/signup">User Login/Create Account!</a></p>
   </div>
   </div>
-
+  
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
   <%= yield %>
 
   <div class="footer">
