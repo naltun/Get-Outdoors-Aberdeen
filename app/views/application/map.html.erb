@@ -20,12 +20,16 @@ function loadScript()
 window.onload = loadScript;
 </script>
 
-<select style="text-align:center;width:100px;height:25px;">
-  <option value="Allan Park">Allan Park</option>
-  <option value="Beach/Queens Link">Beach and Queens Link</option>
-  <option value="Bon Accord Terrace Gardens">Bon Accord Terrace Gardens</option>
-  <option value="Duthie Park">Duthie Park</option>
-  <option value="Hazlehead Park">Hazlehead Park</option>
-</select>
+<% if logged_in? %>
+  <select style="text-align:center;width:100px;height:25px;">
+    <option value="Allan Park">Allan Park</option>
+    <option value="Beach/Queens Link">Beach and Queens Link</option>
+    <option value="Bon Accord Terrace Gardens">Bon Accord Terrace Gardens</option>
+    <option value="Duthie Park">Duthie Park</option>
+    <option value="Hazlehead Park">Hazlehead Park</option>
+  </select>
 
-<div id="googleMap" style="width:800px; height:500px;margin:0 auto;" "></div>
+  <div id="googleMap" style="width:800px; height:500px;margin:0 auto;"></div>
+<% else %>
+  <p>Please log in to view the map. :) If you currently do not have an account, you can make one <em>free</em> <a href="/signup">here</a></p>
+<% end %>

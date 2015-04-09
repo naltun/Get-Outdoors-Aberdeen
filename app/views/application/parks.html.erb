@@ -2,8 +2,8 @@
   <input type="text" id="search">
 </form>
 
-<table class="table table-hover">
-  <tbody>
+<table id="table" class="table table-hover">
+  <thead>
     <tr>
       <th>Name</th>
       <th>Opening Time</th>
@@ -12,6 +12,8 @@
       <th>Bus Routes</th>
       <th>Description</th>
     </tr>
+  </thead>
+  <tbody>
     <% Park.all.each do |p| %>  
       <tr>
         <td><%= p.name %></td>
@@ -27,6 +29,6 @@
 
 <script type="text/javascript">
         $( document ).ready(function() {
-          $('input#search').quicksearch('table tbody tr td';
+          $('input#search').quicksearch('#table tbody tr';
         });
 </script>
