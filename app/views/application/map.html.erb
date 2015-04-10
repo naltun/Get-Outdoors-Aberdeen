@@ -1,35 +1,166 @@
 <script>
-function initialize()
-{
-  var mapProp = {
-    center: new google.maps.LatLng(57.171949, -2.102436),
-    zoom:12,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
+// function initialize()
+// {
+//   var mapProp = {
+//     center: new google.maps.LatLng(57.171949, -2.102436),
+//     zoom:12,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   };
+//   var map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+// }
 
-function loadScript()
-{
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initialize";
-  document.body.appendChild(script);
-}
+// function loadScript()
+// {
+//   var script = document.createElement("script");
+//   script.type = "text/javascript";
+//   script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initialize";
+//   document.body.appendChild(script);
+// }
 
-window.onload = loadScript;
+// window.onload = loadScript;
+
+//   var aberdeen = new google.maps.LatLng(57.171949, -2.102436);
+
+//   var parks = [
+//     new google.maps.LatLng(57.114277, -2.178171),
+//     new google.maps.LatLng(57.154484, -2.078304),
+//     new google.maps.LatLng(57.141497, -2.107034),
+//     new google.maps.LatLng(57.130426, -2.103889),
+//     new google.maps.LatLng(57.139335, -2.178050),
+//     new google.maps.LatLng(57.136613, -2.148836),
+//     new google.maps.LatLng(57.143633, -2.115678),
+//     new google.maps.LatLng(57.171833, -2.102511),
+//     new google.maps.LatLng(57.168499, -2.133878),
+//     new google.maps.LatLng(57.147116, -2.103708),
+//     new google.maps.LatLng(51.535101, -0.039665),
+//     new google.maps.LatLng(57.153794, -2.122746),
+//     new google.maps.LatLng(57.184172, -2.104933),
+//     new google.maps.LatLng(57.132648, -2.101810)
+
+
+//   ];
+
+//   var markers = [];
+//   var map;
+
+//   function initialize() {
+//     var mapOptions = {
+//       zoom: 12,
+//       center: aberdeen
+//     };
+
+//     map = new google.maps.Map(document.getElementById('map_canvas'),
+//             mapOptions);
+//   }
+
+//   google.maps.event.addDomListener(window, 'load', initialize);
+  
+//   var parks = [
+//     ['Allan Park', 57.114277, -2.178171],
+//     ['Beach/Queens Links', 57.154484, -2.078304],
+//     ['Bon Accord Terrace Gardens', 57.141497, -2.107034],
+//     ['Duthie Park', 57.130426, -2.103889],
+//     ['Hazlehead Park', 57.139335, -2.178050],
+//     ['Johnston Gardens', 57.136613, -2.148836],
+//     ['Rubislaw and Queens Terrace Gardens',57.143633, -2.115678],
+//     ['Seaton Park', 57.171833, -2.102511],
+//     ['Stewart Park', 57.168499, -2.133878],
+//     ['Union Terrace Gardens', 57.147116, -2.103708],
+//     ['Victoria Park', 51.535101, -0.039665],
+//     ['Westburn Park', 57.153794, -2.122746],
+//     ['Westfield Park', 57.184172, -2.104933],
+//     ['David Welch Winter Gardens', 57.132648, -2.101810]
+//   ];  
+  
+    var locations = [
+    ['Allan Park', 57.114277, -2.178171],
+    ['Beach/Queens Links', 57.154484, -2.078304],
+    ['Bon Accord Terrace Gardens', 57.141497, -2.107034],
+    ['Duthie Park', 57.130426, -2.103889],
+    ['Hazlehead Park', 57.139335, -2.178050],
+    ['Johnston Gardens', 57.136613, -2.148836],
+    ['Rubislaw and Queens Terrace Gardens',57.143633, -2.115678],
+    ['Seaton Park', 57.171833, -2.102511],
+    ['Stewart Park', 57.168499, -2.133878],
+    ['Union Terrace Gardens', 57.147116, -2.103708],
+    ['Victoria Park', 51.535101, -0.039665],
+    ['Westburn Park', 57.153794, -2.122746],
+    ['Westfield Park', 57.184172, -2.104933],
+    ['David Welch Winter Gardens', 57.132648, -2.101810]
+  ];  
+  
+  var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+    
+    var icons = [
+      iconURLPrefix + 'red-dot.png',
+      iconURLPrefix + 'green-dot.png',
+      iconURLPrefix + 'blue-dot.png',
+      iconURLPrefix + 'orange-dot.png',
+      iconURLPrefix + 'purple-dot.png',
+      iconURLPrefix + 'pink-dot.png',      
+      iconURLPrefix + 'yellow-dot.png'
+    ]
+    var iconsLength = icons.length;
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-37.92, 151.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      streetViewControl: false,
+      panControl: false,
+      zoomControlOptions: {
+         position: google.maps.ControlPosition.LEFT_BOTTOM
+      }
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      maxWidth: 160
+    });
+
+    var markers = new Array();
+    
+    var iconCounter = 0;
+    
+    // Add the markers and infowindows to the map
+    for (var i = 0; i < locations.length; i++) {  
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        icon: icons[iconCounter]
+      });
+
+      markers.push(marker);
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+      
+      iconCounter++;
+      // We only have a limited number of possible icon colors, so we may have to restart the counter
+      if(iconCounter >= iconsLength) {
+      	iconCounter = 0;
+      }
+    }
+
+    function autoCenter() {
+      //  Create a new viewpoint bound
+      var bounds = new google.maps.LatLngBounds();
+      //  Go through each...
+      for (var i = 0; i < markers.length; i++) {  
+				bounds.extend(markers[i].position);
+      }
+      //  Fit these bounds to the map
+      map.fitBounds(bounds);
+    }
+    autoCenter();
 </script>
 
 <% if logged_in? %>
-  <select style="text-align:center;width:100px;height:25px;">
-    <option value="Allan Park">Allan Park</option>
-    <option value="Beach/Queens Link">Beach and Queens Link</option>
-    <option value="Bon Accord Terrace Gardens">Bon Accord Terrace Gardens</option>
-    <option value="Duthie Park">Duthie Park</option>
-    <option value="Hazlehead Park">Hazlehead Park</option>
-  </select>
-
-  <div id="googleMap" style="width:800px; height:500px;margin:0 auto;"></div>
+  <div id="map_canvas" style="width:800px; height:500px;margin:0 auto;"></div>
 <% else %>
   <h4>Please log in to view the map. :) If you currently do not have an account, you can make one <em>free</em> <a href="/signup">here</a></h4>
 <% end %>
