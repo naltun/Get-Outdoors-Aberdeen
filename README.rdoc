@@ -1,1 +1,3 @@
-A park directory for Aberdeen, Scotland. Aberdeen, a seaside and port hub city in Scotland, features a wealthy park space atmosphere. I built this application, which features Google Maps, interactive search, and user registration, to assist Aberdonians to find a new park to explore. So, have it it; get outdoors, Aberdeen!
+A park directory for Aberdeen, Scotland. Aberdeen, a seaside and port hub city in Scotland, features a wealthy park space atmosphere. I built this application, which features Google Maps, interactive search, and user registration, to assist Aberdonians to find a new park to explore. So, have it it; get outdoors, Aberdeen! 
+
+###Please note, that I made this as a project. It is currently not in production.
